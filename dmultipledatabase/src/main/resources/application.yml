@@ -1,0 +1,45 @@
+server:
+  port: 8080
+  dataPath: F:/usr/biboheart/bootdemos/ddatabase
+spring:
+  profiles:
+    active: dev
+  output:
+    ansi:
+      enabled: detect
+  http:
+    encoding:
+      charset: UTF-8
+  servlet:
+    multipart:
+      max-file-size: -1
+      max-request-size: 500MB
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.2.127:3306/bh_demos_multiple?serverTimezone=UTC&createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf-8&useSSL=false&autoReconnect=true
+    username: root
+    password: dbadmin@21ber.com
+  jpa:
+    show-sql: true
+    database: default
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: false
+extend:
+  names: his
+  his:
+    datasource:
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://192.168.2.127:3306/bh_demos_multiple_2?serverTimezone=UTC&createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf-8&useSSL=false&autoReconnect=true
+      username: root
+      password: dbadmin@21ber.com
+
+# LOGGING
+logging:
+  level:
+    root: info

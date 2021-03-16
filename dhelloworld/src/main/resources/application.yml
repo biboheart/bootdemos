@@ -1,0 +1,9 @@
+server:
+  port: 8080
+spring:
+  profiles:
+    active: dev
+  resources:
+    static-locations: file:/usr/biboheart/bootdemos/dhelloworld/static, classpath:/static/
+custom:
+  name: bhhello-app

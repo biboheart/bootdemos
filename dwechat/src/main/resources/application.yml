@@ -1,0 +1,44 @@
+server:
+  port: 9000
+  dataPath: F:/usr/biboheart/bootdemos/dwechat
+spring:
+  thymeleaf:
+    cache: false
+  profiles:
+    active: dev
+  output:
+    ansi:
+      enabled: detect
+  http:
+    encoding:
+      charset: UTF-8
+  servlet:
+    multipart:
+      max-file-size: -1
+      max-request-size: 500MB
+wechat:
+  mp:
+#    token: biboheartdemo
+#    appid: wx12a2aaa1890ff639
+#    secret: 70282773221c523fb77d9432c9834e58
+    # 医步
+#    appid: wx2e7673a1ec1d476c
+#    secret: 267d8215fedd255eda71942546e6c6d4
+    # 横店文荣医院
+    appid: wxb866d0f0308fe429
+    secret: 900c812f241191a3428ffefbe6969f71
+  pay:
+#    mchid: 1487720162
+#    appid: wx2e7673a1ec1d476c
+#    key: aT96KhNyHgfy5FaaDgZnqGXZrqmqpncu
+    # 经过测试，支付不需要证书
+#    keyPath: classpath:keys/cert.p12
+    # 横店文荣医院
+    mchid: 1531387131
+    appid: wxb866d0f0308fe429
+    key: 453f7urhf97iykg74yrhd63tegdassdf
+    keyPath: classpath:keys/apiclient_cert.p12
+# LOGGING
+logging:
+  level:
+    root: info

@@ -1,0 +1,52 @@
+server:
+  port: 8082
+security:
+  oauth2:
+    client:
+      client-id: client_1
+      client-secret: 123456
+      access-token-uri: http://192.168.2.105:8081/oauth/token
+      user-authorization-uri: http://192.168.2.105:8081/oauth/authorize
+      grant-type: client_credentials
+    resource:
+      user-info-uri: http://192.168.2.105:8081/api/user/info
+spring:
+  output:
+    ansi:
+      enabled: DETECT
+  http:
+    encoding:
+      charset: UTF-8
+  servlet:
+    multipart:
+      max-file-size: -1
+      max-request-size: 500MB
+  main:
+    allow-bean-definition-overriding: true
+  redis:
+    # redis数据库索引（默认为0），我们使用索引为3的数据库，避免和其他数据库冲突
+    database: 2
+    # redis服务器地址（默认为localhost）
+    host: localhost
+    # redis端口（默认为6379）
+    port: 6379
+    # redis访问密码（默认为空）
+    password:
+    # redis连接超时时间（单位为毫秒）
+    timeout: 3600000
+    # redis连接池配置
+    lettuce:
+      pool:
+        # 最大可用连接数（默认为8，负数表示无限）
+        max-active: -1
+        # 最大空闲连接数（默认为8，负数表示无限）
+        max-idle: 200
+        # 最小空闲连接数（默认为0，该值只有为正数才有作用）
+        min-idle: 0
+        # 从连接池中获取连接最大等待时间（默认为-1，单位为毫秒，负数表示无限）
+        max-wait: -1
+# LOGGING
+logging:
+  level:
+    root: info
+#    org.springframework: DEBUG
