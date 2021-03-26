@@ -96,5 +96,6 @@
         <module>damqp</module>
         <module>dwebflux</module>
         <module>dconsumer</module>
+        <module>devent</module>
     </modules>
 </project>

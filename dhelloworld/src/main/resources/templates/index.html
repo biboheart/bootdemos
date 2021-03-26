@@ -13,8 +13,19 @@
         <div class="jumbotron">
             <h1>欢迎你：<span th:text="${name}"></span></h1>
             <p>这是首页</p>
+            <button type="button" onclick="doLogin();" class="btn-blue" id="J_Submit">登录</button>
         </div>
         <img src="/001.jpg" alt="封面" class="img-thumbnail">
     </div>
 </body>
+<script>
+    function doLogin() {
+        $.post("http://localhost:9000/loginAction", {"shenfen": '1101', "kouling": '123'}, function (data) {
+            console.log(data);
+        }, 'JSON', function () {
+            console.log('错误');
+        })
+
+    }
+</script>
 </html>
