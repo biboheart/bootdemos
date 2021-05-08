@@ -17,11 +17,12 @@ public class DemoEventListener {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        log.info("1 {} event listener source: {}, name: {}", TimeUtils.formatDate(null, null), String.valueOf(event.getSource()), event.getName());
+        log.info("1 {} event listener source: {}, name: {}", TimeUtils.formatDate(null, null), event.getSource(), event.getName());
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        log.info("3 {} event listener end source: {}, name: {}", TimeUtils.formatDate(null, null), event.getSource(), event.getName());
     }
 }

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>bootdemos</artifactId>
+        <groupId>com.biboheart.demos</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.biboheart.dredis</groupId>
+    <artifactId>dredis</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>dredis</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <docker.registry>docker.blueheart.cn</docker.registry>
+        <docker.image.prefix>biboheart</docker.image.prefix>
+        <dockerfile.maven.version>1.4.10</dockerfile.maven.version>
+        <service.port>8080</service.port>
+    </properties>
+
+    <dependencies>
+        <!--redis-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-integration</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.integration</groupId>
+            <artifactId>spring-integration-redis</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>1.4.0</version>
+                <configuration>
+                    <from>
+                        <image>openjdk:8-jdk-alpine</image>
+                    </from>
+                    <to>
+                        <image>${docker.registry}/${docker.image.prefix}/${project.artifactId}</image>
+                        <tags>
+                            <tag>${project.version}</tag>
+                            <tag>latest</tag>
+                        </tags>
+                    </to>
+                    <allowInsecureRegistries>true</allowInsecureRegistries>
+                    <container>
+                        <volumes>
+                            <volume>/usr/biboheart</volume>
+                        </volumes>
+                        <ports>
+                            <port>${service.port}</port>
+                        </ports>
+                    </container>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

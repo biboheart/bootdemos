@@ -97,5 +97,10 @@
         <module>dwebflux</module>
         <module>dconsumer</module>
         <module>devent</module>
+        <module>hospital</module>
+        <module>dcache</module>
+        <module>dredis</module>
+        <module>ddatabase</module>
+        <module>dddns</module>
     </modules>
 </project>
