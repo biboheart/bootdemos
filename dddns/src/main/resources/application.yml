@@ -1,2 +1,6 @@
 server:
   port: 18008
+aliyun:
+  access:
+    key: key
+    secret: secret

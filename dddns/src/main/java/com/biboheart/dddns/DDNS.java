@@ -8,7 +8,9 @@ import com.aliyuncs.alidns.model.v20150109.UpdateDomainRecordRequest;
 import com.aliyuncs.alidns.model.v20150109.UpdateDomainRecordResponse;
 import com.aliyuncs.exceptions.ClientException;
 import com.aliyuncs.profile.DefaultProfile;
+import com.biboheart.brick.utils.CheckUtils;
 import com.google.gson.Gson;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
@@ -21,11 +23,19 @@ import java.util.regex.Pattern;
 
 @Component
 public class DDNS {
+    @Value("${aliyun.access.key:null}")
+    private String accessKeyId;
+    @Value("${aliyun.access.secret:null}")
+    private String secret;
+
     public void update() {
+        if (CheckUtils.isEmpty(accessKeyId) || CheckUtils.isEmpty(secret)) {
+            return;
+        }
         //  设置鉴权参数，初始化客户端
         DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou",// 地域ID
-                "LTAI5tDnFq5ToDKrLKhzkrNY",// 您的AccessKey ID
-                "NDjgJZ3WdTfwcHAuuLF05rXM23782P");// 您的AccessKey Secret
+                accessKeyId,// 您的AccessKey ID
+                secret);// 您的AccessKey Secret
         IAcsClient client = new DefaultAcsClient(profile);
         //查询指定二级域名的最新解析记录
         DescribeSubDomainRecordsRequest describeSubDomainRecordsRequest = new DescribeSubDomainRecordsRequest();
