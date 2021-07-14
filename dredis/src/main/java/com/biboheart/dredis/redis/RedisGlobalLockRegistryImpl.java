@@ -3,12 +3,13 @@ package com.biboheart.dredis.redis;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.redis.util.RedisLockRegistry;
+import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
 //@Component
-public class RedisGlobalLockImpl implements RedisGlobalLock {
+public class RedisGlobalLockRegistryImpl implements RedisGlobalLock {
     private final RedisLockRegistry redisLockRegistry;
 
     /* 默认30ms尝试一次, 尝试10次 */
@@ -19,7 +20,7 @@ public class RedisGlobalLockImpl implements RedisGlobalLock {
     //private final static long LOCK_EXPIRE           = 30 * 1000L;
 
     @Autowired
-    public RedisGlobalLockImpl(RedisLockRegistry redisLockRegistry) {
+    public RedisGlobalLockRegistryImpl(RedisLockRegistry redisLockRegistry) {
         this.redisLockRegistry = redisLockRegistry;
     }
 

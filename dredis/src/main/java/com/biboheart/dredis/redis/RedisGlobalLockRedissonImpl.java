@@ -1,15 +1,16 @@
 package com.biboheart.dredis.redis;
 
 import lombok.extern.slf4j.Slf4j;
+import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.integration.redis.util.RedisLockRegistry;
+import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
-//@Component
-public class RedisGlobalLockImpl implements RedisGlobalLock {
-    private final RedisLockRegistry redisLockRegistry;
+@Component
+public class RedisGlobalLockRedissonImpl implements RedisGlobalLock {
+    private final RedissonClient redissonClient;
 
     /* 默认30ms尝试一次, 尝试10次 */
     //private final static long LOCK_TRY_INTERVAL     = 10L;
@@ -19,8 +20,8 @@ public class RedisGlobalLockImpl implements RedisGlobalLock {
     //private final static long LOCK_EXPIRE           = 30 * 1000L;
 
     @Autowired
-    public RedisGlobalLockImpl(RedisLockRegistry redisLockRegistry) {
-        this.redisLockRegistry = redisLockRegistry;
+    public RedisGlobalLockRedissonImpl(RedissonClient redissonClient) {
+        this.redissonClient = redissonClient;
     }
 
 
@@ -31,7 +32,7 @@ public class RedisGlobalLockImpl implements RedisGlobalLock {
     @Override
     public void lock(String key) {
         log.info("开始取锁: key {}", key);
-        redisLockRegistry.obtain(key).lock();
+        redissonClient.getLock(key).lock();
         log.info("完成取锁: key {}", key);
     }
 
@@ -51,7 +52,7 @@ public class RedisGlobalLockImpl implements RedisGlobalLock {
         log.info("开始取锁: key {}", key);
         boolean success;
         try {
-            success = redisLockRegistry.obtain(key).tryLock(timeout, unit);
+            success = redissonClient.getLock(key).tryLock(timeout, timeout * 2, unit);
         } catch (InterruptedException e) {
             log.info("取锁出错: key {}, error {}", key, e.getMessage());
             return false;
@@ -67,7 +68,7 @@ public class RedisGlobalLockImpl implements RedisGlobalLock {
     public void unlock(String key) {
         log.info("开始解锁: key {}", key);
         try {
-            redisLockRegistry.obtain(key).unlock();
+            redissonClient.getLock(key).unlock();
         } catch (Exception e) {
             log.error("解锁失败: key {}, 错误信息: {}", key, e);
         }

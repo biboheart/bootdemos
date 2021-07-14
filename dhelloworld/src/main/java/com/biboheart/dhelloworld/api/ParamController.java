@@ -26,6 +26,9 @@ public class ParamController {
 
     @RequestMapping(value = "/demo/param/json")
     public String jsonParam(@RequestBody Person person) {
+        String str = "test";
+        int start = str.indexOf("<tns:record>") + "<tns:record>".length();
+        int end = str.indexOf("</tns:record>");
         return "接收到参数:" + person.toString();
     }
 }
