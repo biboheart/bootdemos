@@ -10,11 +10,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 @Slf4j
 @RestController
 public class RedisController {
     private final RedisUtils redisUtils;
     private final RedisGlobalLock redisGlobalLock;
+
+    public static ReentrantLock lock = new ReentrantLock();
 
     public RedisController(RedisUtils redisUtils, RedisGlobalLock redisGlobalLock) {
         this.redisUtils = redisUtils;
@@ -27,6 +31,20 @@ public class RedisController {
         System.out.println(time);
         redisUtils.hset("demo:cache", name, new User(1, "bibo", "123"), 60);
         System.out.println(redisUtils.hget("demo:cache", name));
+        return new BhResponseResult<>(0, "success", null);
+    }
+
+    @RequestMapping(value = "/reentrantLock", method = {RequestMethod.GET})
+    public BhResponseResult<?> ReentrantLock(String name) {
+        lock.lock();
+        try {
+            System.out.println(TimeUtils.formatDate(null, null) + ":进入锁区域");
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            lock.unlock();
+        }
         return new BhResponseResult<>(0, "success", null);
     }
 
