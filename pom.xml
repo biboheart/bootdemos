@@ -102,5 +102,6 @@
         <module>dredis</module>
         <module>ddatabase</module>
         <module>dddns</module>
+        <module>ditems</module>
     </modules>
 </project>
