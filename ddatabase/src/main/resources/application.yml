@@ -15,21 +15,21 @@ spring:
       max-request-size: 500MB
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    url: jdbc:mysql://192.168.2.127:3306/bh_demos_database?serverTimezone=UTC&createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf-8&useSSL=false&autoReconnect=true
-#    username: root
-#    password: dbadmin@21ber.com
-    driver-class-name: oracle.jdbc.OracleDriver
-    url: jdbc:oracle:thin:@100.100.98.1:1521:ORCL
-    username: zjhis
-    password: zjhis
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://120.26.195.9:3932/eber_ehis?serverTimezone=UTC&createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf-8&useSSL=false&autoReconnect=true
+    username: root
+    password: jhds@mysql
+#    driver-class-name: oracle.jdbc.OracleDriver
+#    url: jdbc:oracle:thin:@100.100.98.1:1521:ORCL
+#    username: zjhis
+#    password: zjhis
   jpa:
     show-sql: true
-    #database: default
-    #database-platform: org.hibernate.dialect.MySQL5Dialect
+    database: default
+    database-platform: org.hibernate.dialect.MySQL5Dialect
     #database-platform: com.biboheart.ddatabase.jpa.BhMysql5Dialect
-    database: ORACLE
-    database-platform: org.hibernate.dialect.OracleDialect
+#    database: ORACLE
+#    database-platform: org.hibernate.dialect.OracleDialect
     hibernate:
       ddl-auto: none
     properties:

@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface OrderRepository extends JpaRepository<Order, Integer>, JpaSpecificationExecutor<Order>  {
     List<Order> findByEndTimeBetween(Long start, Long end);
+
+    Order findByOrderSn(String orderSn);
 }
