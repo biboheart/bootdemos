@@ -1,0 +1,40 @@
+server:
+  port: 8080
+spring:
+  profiles:
+    active: dev
+  output:
+    ansi:
+      enabled: detect
+  http:
+    encoding:
+      charset: UTF-8
+  servlet:
+    multipart:
+      max-file-size: -1
+      max-request-size: 500MB
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.2.127/eber_ehis_tmp?serverTimezone=UTC&createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf-8&useSSL=false&autoReconnect=true
+    username: root
+    password: dbadmin@21ber.com
+  jpa:
+    show-sql: false
+    database: MYSQL
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: false
+management:
+  endpoint:
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: shutdown
+custom:
+  name: bhhello-app

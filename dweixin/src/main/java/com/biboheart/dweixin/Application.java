@@ -1,51 +1,32 @@
-package com.biboheart.dwechat;
+package com.biboheart.dweixin;
 
 import com.biboheart.brick.exception.BhException;
 import com.biboheart.brick.model.BhResponseResult;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.ApplicationListener;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.converter.StringHttpMessageConverter;
-import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
-import java.nio.charset.StandardCharsets;
 
 @SpringBootApplication
 @RestControllerAdvice
 @Slf4j
-public class DwechatApplication implements ApplicationListener<ContextRefreshedEvent> {
-    private final RestTemplateBuilder builder;
-
-    @Autowired
-    public DwechatApplication(RestTemplateBuilder builder) {
-        this.builder = builder;
-    }
+public class Application implements ApplicationListener<ContextRefreshedEvent> {
 
     public static void main(String[] args) {
-        SpringApplication.run(DwechatApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
         System.out.println(">>>>>>>>>>>>>>启动完成<<<<<<<<<<<<<<");
-    }
-
-    @Bean
-    public RestTemplate restTemplate() {
-        StringHttpMessageConverter stringHttpMessageConverter = new StringHttpMessageConverter(StandardCharsets.UTF_8);
-        return builder.additionalMessageConverters(stringHttpMessageConverter).build();
     }
 
     @ExceptionHandler(value = Exception.class)
