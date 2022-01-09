@@ -1,0 +1,80 @@
+package com.biboheart.dhttpclient.domain.datas;
+
+import com.biboheart.dhttpclient.adapter.ConverterLocator;
+import com.biboheart.dhttpclient.adapter.structure.ConverterType;
+import com.biboheart.dhttpclient.domain.model.DiffInsuranceData;
+import com.biboheart.dhttpclient.domain.model.DiffInsuranceDataItem;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class DiffDatas9202 {
+    public static DiffInsuranceData create(ConverterLocator converterLocator) {
+        List<DiffInsuranceDataItem> itemList = new ArrayList<>();
+        DiffInsuranceData data = new DiffInsuranceData(itemList);
+        itemList.add(new DiffInsuranceDataItem("交易发起机构代码", null, null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        itemList.add(new DiffInsuranceDataItem("交易发起机构名称", null, null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        itemList.add(new DiffInsuranceDataItem("交易发起机构类型", null, null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        itemList.add(new DiffInsuranceDataItem("交易发起机构统筹区", null, null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        itemList.add(new DiffInsuranceDataItem("读卡方式", null, "1", converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        itemList.add(new DiffInsuranceDataItem("身份凭证信息", "6", null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        itemList.add(new DiffInsuranceDataItem("参保地行政区划代码", null, null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        itemList.add(new DiffInsuranceDataItem("就医地行政区划代码", null, null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        itemList.add(new DiffInsuranceDataItem("医疗类别", null, null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        itemList.add(new DiffInsuranceDataItem("特殊结算类别", null, null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        itemList.add(new DiffInsuranceDataItem("规定病种代码", null, null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        itemList.add(new DiffInsuranceDataItem("门诊序列号", "number", null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        itemList.add(new DiffInsuranceDataItem("疾病代码（ICD10）", "icd", null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        itemList.add(new DiffInsuranceDataItem("疾病名称", "diagnosis", null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        itemList.add(new DiffInsuranceDataItem("主要诊断", "diagnosis", null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        itemList.add(new DiffInsuranceDataItem("就诊时间", "visitsTime", null, converterLocator.get(ConverterType.CONVERTER_MILLIS_TIME), String.class, null));
+        itemList.add(new DiffInsuranceDataItem("科室代码", "deptSn", null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        itemList.add(new DiffInsuranceDataItem("科室名称", "deptName", null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        itemList.add(new DiffInsuranceDataItem("医生服务编码", "billPersonSn", null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        itemList.add(new DiffInsuranceDataItem("医生姓名", "billPersonName", null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        itemList.add(new DiffInsuranceDataItem("操作员编号", null, null, null, String.class, null));
+        itemList.add(new DiffInsuranceDataItem("操作员姓名", null, null, null, String.class, null));
+        itemList.add(new DiffInsuranceDataItem("医疗费用总额", "orderPayment", null, converterLocator.get(ConverterType.CONVERTER_LEFT_RADIX_POINT), Double.class, null));
+        itemList.add(new DiffInsuranceDataItem("自费总额（非医保）", "selfCost", null, converterLocator.get(ConverterType.CONVERTER_LEFT_RADIX_POINT), Double.class, null));
+        itemList.add(new DiffInsuranceDataItem("自理总额（乙类目录）", "selfCare", null, converterLocator.get(ConverterType.CONVERTER_LEFT_RADIX_POINT), Double.class, null));
+        itemList.add(new DiffInsuranceDataItem("医保费用总额", "insurancePayment", null, converterLocator.get(ConverterType.CONVERTER_LEFT_RADIX_POINT), Double.class, null));
+        itemList.add(new DiffInsuranceDataItem("费用明细数量", "itemsCount", null, converterLocator.get(ConverterType.CONVERTER_STATIC), Integer.class, null));
+        List<DiffInsuranceDataItem> detailsList = new ArrayList<>();
+        DiffInsuranceData detailsData = new DiffInsuranceData(detailsList);
+        itemList.add(new DiffInsuranceDataItem("费用明细列表", "detailsList", null, null, List.class, detailsData));
+        itemList.add(new DiffInsuranceDataItem("对账流水号", "detailsList", null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        itemList.add(new DiffInsuranceDataItem("终端机编号", null, "0", converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        itemList.add(new DiffInsuranceDataItem("TAC", null, null, null, String.class, null));
+        List<DiffInsuranceDataItem> diagnosisList = new ArrayList<>();
+        DiffInsuranceData diagnosisData = new DiffInsuranceData(diagnosisList);
+        itemList.add(new DiffInsuranceDataItem("次要诊断列表", null, null, null, List.class, diagnosisData));
+        detailsList.add(new DiffInsuranceDataItem("明细序号", "dataSn", null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        detailsList.add(new DiffInsuranceDataItem("药品诊疗类型", "typeSn", null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        detailsList.add(new DiffInsuranceDataItem("药品诊疗类型", "typeSn", null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        detailsList.add(new DiffInsuranceDataItem("收费项目等级", "insuranceCostType", null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        detailsList.add(new DiffInsuranceDataItem("项目统一编号", "insuranceNumber", null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        detailsList.add(new DiffInsuranceDataItem("项目统一名称", "countryName", null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        detailsList.add(new DiffInsuranceDataItem("项目发生时间", "bookkeepingTime", null, converterLocator.get(ConverterType.CONVERTER_MILLIS_TIME), String.class, null));
+        detailsList.add(new DiffInsuranceDataItem("项目医院编号", "projectSn", null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        detailsList.add(new DiffInsuranceDataItem("项目医院端名称", "projectName", null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        detailsList.add(new DiffInsuranceDataItem("医院端规格", "specifications", null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        detailsList.add(new DiffInsuranceDataItem("医院端剂型", "form", null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        detailsList.add(new DiffInsuranceDataItem("医院端单位", "saleUnit", null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        detailsList.add(new DiffInsuranceDataItem("每天次数", "dayNumber", null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        detailsList.add(new DiffInsuranceDataItem("每次用量", "dose", null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        detailsList.add(new DiffInsuranceDataItem("西药天数", "days", null, converterLocator.get(ConverterType.CONVERTER_STATIC), Integer.class, null));
+        detailsList.add(new DiffInsuranceDataItem("单复方标志", "15", null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        detailsList.add(new DiffInsuranceDataItem("中草药贴数", null, "1", converterLocator.get(ConverterType.CONVERTER_STATIC), Integer.class, null));
+        detailsList.add(new DiffInsuranceDataItem("单价", "price", "{\"move\":4,\"fractional\":2}", converterLocator.get(ConverterType.CONVERTER_LEFT_RADIX_POINT), Double.class, null));
+        detailsList.add(new DiffInsuranceDataItem("数量/克数", "num", null, converterLocator.get(ConverterType.CONVERTER_STATIC), Double.class, null));
+        detailsList.add(new DiffInsuranceDataItem("项目总金额", "payment", "{\"move\":4,\"fractional\":2}", converterLocator.get(ConverterType.CONVERTER_LEFT_RADIX_POINT), Double.class, null));
+        detailsList.add(new DiffInsuranceDataItem("参考自负比例", "selfRatio", null, converterLocator.get(ConverterType.CONVERTER_STATIC), Double.class, null));
+        detailsList.add(new DiffInsuranceDataItem("参考自负金额", "selfCare", "{\"move\":4,\"fractional\":2}", converterLocator.get(ConverterType.CONVERTER_LEFT_RADIX_POINT), Double.class, null));
+        detailsList.add(new DiffInsuranceDataItem("备案号", null, null, null, String.class, null));
+        detailsList.add(new DiffInsuranceDataItem("强制自费标志", "forcedSelfPay", null, converterLocator.get(ConverterType.CONVERTER_STATIC), Integer.class, null));
+        detailsList.add(new DiffInsuranceDataItem("剂量单位", "doseUnit", null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        detailsList.add(new DiffInsuranceDataItem("总剂量", null, null, null, String.class, null));
+        detailsList.add(new DiffInsuranceDataItem("包装数量", "num", null, converterLocator.get(ConverterType.CONVERTER_STATIC), String.class, null));
+        return data;
+    }
+}
