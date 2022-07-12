@@ -1,23 +1,19 @@
-import com.biboheart.brick.utils.ListUtils;
-import com.biboheart.ddatabase.utils.FlagUtils;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.List;
+import java.math.BigDecimal;
 
 public class Demo {
     @Test
     public void tttt() {
-        System.out.println("start");
-        char ch = (char)255;
-        System.out.println(ch);
-        System.out.println((int)ch);
-        System.out.println(Integer.toBinaryString(ch));
-        /*String str = null;
-        int []orders = {5, 3, 7, 5};
-        for (int order : orders) {
-            str = FlagUtils.addFlag(str, order);
-        }
-        System.out.println("end str lend:" + str.length() + "; str:" + str);*/
+        BigDecimal num = new BigDecimal("-0.5").stripTrailingZeros();
+        BigDecimal onum = new BigDecimal("-0.5").stripTrailingZeros();
+        onum = onum.add(num);
+        System.out.println(onum.doubleValue());
+        System.out.println(onum);
+        num = num.subtract(new BigDecimal("-0.5"));
+        System.out.println(num.doubleValue());
+        Long payment = 150000L;
+        BigDecimal discount = new BigDecimal(payment).multiply(new BigDecimal("0.8"));
+        System.out.println(discount.longValue());
     }
 }

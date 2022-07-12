@@ -201,6 +201,21 @@ public class ExcelServiceImpl implements ExcelService {
 
     }
 
+    @Override
+    public void readExcelDiagnosis() throws IOException, InvalidFormatException {
+
+    }
+
+    @Override
+    public void readSerial() throws IOException, InvalidFormatException {
+
+    }
+
+    @Override
+    public void readExpirationTime() throws IOException, InvalidFormatException {
+
+    }
+
     // 向excel中写入10000行
     private int write(String filePath, XSSFWorkbook workbook, int rowStart, int lastCellNum) throws IOException {
         Sheet sheet = workbook.getSheetAt(0);

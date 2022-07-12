@@ -10,4 +10,7 @@ public interface ExcelService {
     void readExcelOther() throws IOException, InvalidFormatException;
     void readExcelDrug() throws IOException, InvalidFormatException;
     void readExcelDrugFull() throws IOException, InvalidFormatException;
+    void readExcelDiagnosis() throws IOException, InvalidFormatException;
+    void readSerial() throws IOException, InvalidFormatException;
+    void readExpirationTime() throws IOException, InvalidFormatException;
 }

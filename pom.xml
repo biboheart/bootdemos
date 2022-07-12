@@ -64,7 +64,7 @@
         <dependency>
             <groupId>com.biboheart</groupId>
             <artifactId>bh-brick</artifactId>
-            <version>0.0.14</version>
+            <version>0.0.17</version>
         </dependency>
     </dependencies>
 
@@ -105,5 +105,7 @@
         <module>ditems</module>
         <module>dweixin</module>
         <module>dexcel</module>
+        <module>dcrypto</module>
+        <module>ddbf</module>
     </modules>
 </project>

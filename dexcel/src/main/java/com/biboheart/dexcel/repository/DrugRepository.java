@@ -7,5 +7,5 @@ import java.util.List;
 import java.util.Set;
 
 public interface DrugRepository extends JpaRepository<Drug, Long> {
-    List<Drug> findByInsuranceSnIn(Set<String> snSet);
+//    List<Drug> findByReservedField(Set<String> snSet);
 }

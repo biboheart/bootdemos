@@ -32,9 +32,6 @@ public class DrugDataListener extends AnalysisEventListener<DrugModel> {
     @Override
     public void invoke(DrugModel drug, AnalysisContext analysisContext) {
         count ++;
-        if ("无".equals(drug.getCommonName())) {
-            drug.setCommonName(null);
-        }
         list.add(drug);
         // 达到BATCH_COUNT了，需要去存储一次数据库，防止数据几万条数据在内存，容易OOM
         if (list.size() >= BATCH_COUNT) {
