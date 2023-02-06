@@ -107,5 +107,7 @@
         <module>dexcel</module>
         <module>dcrypto</module>
         <module>ddbf</module>
+        <module>dehis</module>
+        <module>dwxpay</module>
     </modules>
 </project>

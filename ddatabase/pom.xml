@@ -54,6 +54,24 @@
             <version>12.1.0.2.0</version>
         </dependency>
 
+        <!--<dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>8.4.1.jre8</version>&lt;!&ndash;$NO-MVN-MAN-VER$ &ndash;&gt;
+        </dependency>-->
+
+        <!--<dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>11.2.1.jre8</version>
+        </dependency>-->
+
+        <dependency>
+            <groupId>com.hynnet</groupId>
+            <artifactId>sqljdbc4-chs</artifactId>
+            <version>4.0.2206.100</version>
+        </dependency>
+
         <dependency>
             <groupId>com.github.albfernandez</groupId>
             <artifactId>javadbf</artifactId>

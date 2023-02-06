@@ -15,10 +15,10 @@ spring:
       max-request-size: 500MB
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://10.0.3.18:3306/eber_ehis?serverTimezone=UTC&createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf-8&useSSL=false&autoReconnect=true
-    username: jhts
-    password: jhts@mysql
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://10.0.3.18:3306/eber_ehis?serverTimezone=UTC&createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf-8&useSSL=false&autoReconnect=true
+#    username: jhts
+#    password: jhts@mysql
 #    url: jdbc:mysql://120.26.195.9:3932/eber_ehis?serverTimezone=UTC&createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf-8&useSSL=false&autoReconnect=true
 #    username: root
 #    password: jhds@mysql
@@ -26,13 +26,22 @@ spring:
 #    url: jdbc:oracle:thin:@100.100.98.1:1521:ORCL
 #    username: zjhis
 #    password: zjhis
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://122.226.108.230:1888;DatabaseName=HealthOne
+    username: sa
+    password: cnhis
+#    url: jdbc:sqlserver://128.8.4.108,1433;DatabaseName=test
+#    username: sa
+#    password: zjls@108.sql
   jpa:
     show-sql: false
-    database: default
-    database-platform: org.hibernate.dialect.MySQL5Dialect
-    #database-platform: com.biboheart.ddatabase.jpa.BhMysql5Dialect
+#    database: default
+#    database-platform: org.hibernate.dialect.MySQL5Dialect
+#    database-platform: com.biboheart.ddatabase.jpa.BhMysql5Dialect
 #    database: ORACLE
 #    database-platform: org.hibernate.dialect.OracleDialect
+    database: sql_server
+    database-platform: org.hibernate.dialect.SQLServer2012Dialect
     hibernate:
       ddl-auto: none
     properties:
